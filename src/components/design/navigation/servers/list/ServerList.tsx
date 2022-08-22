@@ -56,8 +56,15 @@ type ParentProps = {
     reorder: (source: number, dest: number) => void;
 };
 
+const SidebarContainer = styled.div`
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    background: #232323;
+`;
+
 const Base = styled.div`
-    width: 56px;
+    // width: 56px;
     display: flex;
     flex-direction: column;
 
@@ -101,7 +108,8 @@ export function ServerList(props: Props & ParentProps & FooterProps) {
     const Link = useLink();
 
     return (
-        <Base>
+        <SidebarContainer>
+            <Base>
             <DragDropContext onDragEnd={useDragEndCustomReorder(reorder)}>
                 <Droppable
                     droppableId="droppable"
@@ -165,8 +173,8 @@ export function ServerList(props: Props & ParentProps & FooterProps) {
                 <Link to="/settings">
                     <Tooltip i18n="app.settings.title" div right>
                         <OtherIcon
-                            src="/assets/icons/searchIcon.png"
-                            size={42}
+                            src="/assets_default/icons/searchIcon.png"
+                            size={50}
                             fallback={<Cog size={18} />}
                             interactive
                         />
@@ -177,14 +185,16 @@ export function ServerList(props: Props & ParentProps & FooterProps) {
                 <Link to="/settings">
                     <Tooltip i18n="app.settings.title" div right>
                         <OtherIcon
-                            src="/assets/icons/arrow-down.png"
-                            size={42}
+                            src="/assets_default/icons/arrow-down.png"
+                            size={50}
                             fallback={<Cog size={18} />}
                             interactive
+                            arrow={true}
                         />
                     </Tooltip>
                 </Link>
             </ItemContainer>
         </Base>
+        </SidebarContainer>
     );
 }

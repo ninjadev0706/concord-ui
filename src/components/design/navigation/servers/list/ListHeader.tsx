@@ -34,7 +34,7 @@ const UserItem = observer(({ client, home, active }: Props) => {
                             },
                             false,
                         )}
-                        size={42}
+                        size={50}
                         interactive
                         holepunch={alertCount ? "right" : "bottom-right"}
                         overlay={
@@ -114,9 +114,9 @@ const UnreadDMs = observer(({ client, permit }: Props) => {
 export function ListHeader(props: Props) {
     return (
         <ItemContainer head>
-            {/* <UserItem {...props} />
+            <UserItem {...props} />
             <UnreadDMs {...props} />
-            <LineDivider compact /> */}
+            <LineDivider compact />
             <span className="title">Bubbles</span>
         </ItemContainer>
     );

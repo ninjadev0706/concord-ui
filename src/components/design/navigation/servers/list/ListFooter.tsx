@@ -1,4 +1,5 @@
 import { Plus } from "@styled-icons/boxicons-regular";
+import styled, { css } from "styled-components";
 import { Compass } from "@styled-icons/boxicons-solid";
 import React from "react";
 
@@ -13,6 +14,13 @@ export interface FooterProps {
     showDiscover?: boolean;
 }
 
+const SetIcon = styled.img`
+    display: flex;
+    margin: auto;
+    width: 18px;
+    height: 18px;
+`;
+
 /**
  * Buttons at the bottom of the list, including "create new server" and "discovery".
  */
@@ -25,8 +33,8 @@ export function ListFooter({ createServer, showDiscover }: FooterProps) {
                 <ItemContainer>
                     <Tooltip content="Add a server" div right>
                         <Avatar
-                            size={42}
-                            fallback={<Plus color="var(--accent)" size={24} />}
+                            size={50}
+                            fallback={<SetIcon src="/assets_default/icons/addIcon.png" />}
                             interactive
                         />
                     </Tooltip>
@@ -37,7 +45,7 @@ export function ListFooter({ createServer, showDiscover }: FooterProps) {
                     <ItemContainer>
                         <Tooltip content="Discover Revolt" div right>
                             <Avatar
-                                size={42}
+                                size={52}
                                 fallback={
                                     <Compass color="var(--accent)" size={24} />
                                 }

@@ -12,7 +12,7 @@ import { Tooltip } from "../../../atoms/indicators/Tooltip";
 import { INotificationChecker } from "revolt.js/dist/util/Unreads";
 
 export const ItemContainer = styled.div<{ head?: boolean }>`
-    width: 56px;
+    // width: 56px;
     padding-left: 7px;
     padding-right: 7px;
     padding-bottom: 6px;
@@ -23,12 +23,13 @@ export const ItemContainer = styled.div<{ head?: boolean }>`
         props.head &&
         css`
             color: white;
-            font-size: 12px;
-            padding-bottom: 10px;
+            font-size: 13px;
+            padding: 10px 7px;
         `}
     
     .title {
         text-shadow: 3px 5px 2px #0e0d0d;
+        font-weight: bold;
     }
 `;
 
@@ -61,7 +62,7 @@ const Inner = observer(({ item, permit }: InnerProps) => {
             <Trigger id="Menu" data={{ server: item._id, unread }}>
                 <Link to={"/server/" + item._id}>
                     <Avatar
-                        size={42}
+                        size={50}
                         interactive
                         fallback={item.name}
                         holepunch={(unread || count > 0) && "top-right"}

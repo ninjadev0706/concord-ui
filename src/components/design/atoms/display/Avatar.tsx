@@ -22,7 +22,14 @@ const ImgWrap = styled.div`
 const SetIcon = styled.img`
     display: flex;
     margin: auto;
-    width: 20px;
+    width: 18px;
+    height: 18px;
+`;
+
+const ArrowIcon = styled.img`
+    display: flex;
+    margin: auto;
+    width: 10px;
     height: 20px;
 `;
 
@@ -43,7 +50,7 @@ const FallbackBase = styled.div`
 
 const ParentBase = styled.svg<Pick<Props, "interactive">>`
     user-select: none;
-    box-shadow: 4px 4px 6px #0e0d0d;
+    box-shadow: 5px 10px 6px #161414;
     border-radius: 50%;
 
     foreignObject {
@@ -91,6 +98,7 @@ export type Props = {
      * Whether this icon is interactive
      */
     interactive?: boolean;
+    arrow?: boolean;
 };
 
 /**
@@ -121,11 +129,12 @@ export function Avatar({
                 {src && <Image src={src} />}
                 {!src && (
                     <FallbackBase>
-                        {/* {typeof fallback === "string" ? (
-                            <Initials input={fallback} maxLength={2} />
+                        {typeof fallback === "string" ? (
+                            // <Initials input={fallback} maxLength={2} />
+                            <></>
                         ) : (
                             fallback
-                        )} */}
+                        )}
                     </FallbackBase>
                 )}
             </foreignObject>
@@ -141,6 +150,7 @@ export function OtherIcon({
     src,
     overlay,
     interactive,
+    arrow,
 }: Props) {
     return (
         <ParentBase
@@ -154,8 +164,12 @@ export function OtherIcon({
                 width="32"
                 height="32"
                 mask={holepunch ? `url(#holepunch-${holepunch})` : undefined}>
-                {src && <ImgWrap>
-                    <SetIcon src="/assets/icons/searchIcon.png" />
+                {src && 
+                <ImgWrap>
+                    {arrow ? 
+                    <ArrowIcon src={src} />:
+                    <SetIcon src={src} />
+                    }
                 </ImgWrap>}
                 {!src && (
                     <FallbackBase>
