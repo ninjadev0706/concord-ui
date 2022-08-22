@@ -11,7 +11,7 @@ import { useLink } from "../../../../../lib/context";
 
 import { useDndComponents, useDragEndCustomReorder } from "../../../../common";
 
-import { Avatar } from "../../../atoms";
+import { Avatar, OtherIcon } from "../../../atoms";
 import { Tooltip } from "../../../atoms/indicators/Tooltip";
 import { Item, ItemContainer } from "./Item";
 import { FooterProps, ListFooter } from "./ListFooter";
@@ -161,13 +161,23 @@ export function ServerList(props: Props & ParentProps & FooterProps) {
                     }}
                 </Droppable>
             </DragDropContext>
-            <Shadow>
-                <div />
-            </Shadow>
             <ItemContainer head>
                 <Link to="/settings">
                     <Tooltip i18n="app.settings.title" div right>
-                        <Avatar
+                        <OtherIcon
+                            src="/assets/icons/searchIcon.png"
+                            size={42}
+                            fallback={<Cog size={18} />}
+                            interactive
+                        />
+                    </Tooltip>
+                </Link>
+            </ItemContainer>
+            <ItemContainer head>
+                <Link to="/settings">
+                    <Tooltip i18n="app.settings.title" div right>
+                        <OtherIcon
+                            src="/assets/icons/arrow-down.png"
                             size={42}
                             fallback={<Cog size={18} />}
                             interactive

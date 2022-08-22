@@ -1,12 +1,12 @@
 {
-    "name": "@concord/ui",
+    "name": "concord-uikit",
     "version": "1.0.0",
     "description": "Concord UI component library",
     "type": "commonjs",
     "main": "lib/index.js",
     "module": "esm/index.js",
     "types": "esm/index.d.ts",
-    "repository": "https://github.com/millicare/concord-ui",
+    "repository": "https://github.com/ninjadev0706/concord-ui",
     "author": "millicare ninjadev",
     "license": "AGPL-3.0-or-later",
     "dependencies": {

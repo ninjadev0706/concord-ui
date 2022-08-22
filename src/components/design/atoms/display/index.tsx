@@ -1,4 +1,4 @@
-export { Avatar } from "./Avatar";
+export { Avatar, OtherIcon } from "./Avatar";
 export { Banner } from "./Banner";
 export { Category } from "./Category";
 export { Details } from "./Details";

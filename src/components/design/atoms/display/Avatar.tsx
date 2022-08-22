@@ -9,6 +9,23 @@ const Image = styled.img`
     border-radius: 50%;
 `;
 
+const ImgWrap = styled.div`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background: var(--tooltip);
+`;
+
+const SetIcon = styled.img`
+    display: flex;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+`;
+
 const FallbackBase = styled.div`
     width: 100%;
     height: 100%;
@@ -21,11 +38,13 @@ const FallbackBase = styled.div`
     font-weight: 600;
     font-size: 0.75rem;
     color: var(--foreground);
-    background: var(--secondary-background);
+    background: var(--tooltip);
 `;
 
 const ParentBase = styled.svg<Pick<Props, "interactive">>`
     user-select: none;
+    box-shadow: 4px 4px 6px #0e0d0d;
+    border-radius: 50%;
 
     foreignObject {
         transition: 150ms ease filter;
@@ -100,6 +119,44 @@ export function Avatar({
                 height="32"
                 mask={holepunch ? `url(#holepunch-${holepunch})` : undefined}>
                 {src && <Image src={src} />}
+                {!src && (
+                    <FallbackBase>
+                        {/* {typeof fallback === "string" ? (
+                            <Initials input={fallback} maxLength={2} />
+                        ) : (
+                            fallback
+                        )} */}
+                    </FallbackBase>
+                )}
+            </foreignObject>
+            {overlay}
+        </ParentBase>
+    );
+}
+
+export function OtherIcon({
+    size,
+    holepunch,
+    fallback,
+    src,
+    overlay,
+    interactive,
+}: Props) {
+    return (
+        <ParentBase
+            width={size}
+            height={size}
+            viewBox="0 0 32 32"
+            interactive={interactive}>
+            <foreignObject
+                x="0"
+                y="0"
+                width="32"
+                height="32"
+                mask={holepunch ? `url(#holepunch-${holepunch})` : undefined}>
+                {src && <ImgWrap>
+                    <SetIcon src="/assets/icons/searchIcon.png" />
+                </ImgWrap>}
                 {!src && (
                     <FallbackBase>
                         {typeof fallback === "string" ? (

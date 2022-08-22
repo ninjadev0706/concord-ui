@@ -10,4 +10,5 @@ module.exports = {
         "storybook-rtl-addon",
     ],
     framework: "@storybook/react",
+    staticDirs: ['../public']
 };

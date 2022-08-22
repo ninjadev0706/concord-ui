@@ -22,8 +22,14 @@ export const ItemContainer = styled.div<{ head?: boolean }>`
     ${(props) =>
         props.head &&
         css`
-            padding-top: 6px;
+            color: white;
+            font-size: 12px;
+            padding-bottom: 10px;
         `}
+    
+    .title {
+        text-shadow: 3px 5px 2px #0e0d0d;
+    }
 `;
 
 const SwooshWrapper = styled.div`
