@@ -114,9 +114,9 @@ const UnreadDMs = observer(({ client, permit }: Props) => {
 export function ListHeader(props: Props) {
     return (
         <ItemContainer head>
-            <UserItem {...props} />
-            <UnreadDMs {...props} />
-            <LineDivider compact />
+            {/* <UserItem {...props} />
+            <UnreadDMs {...props} /> */}
+            {/* <LineDivider compact /> */}
             <span className="title">Bubbles</span>
         </ItemContainer>
     );

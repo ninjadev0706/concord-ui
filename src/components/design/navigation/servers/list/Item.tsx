@@ -17,6 +17,8 @@ export const ItemContainer = styled.div<{ head?: boolean }>`
     padding-right: 7px;
     padding-bottom: 6px;
 
+    display: flex;
+    justify-content: center;
     cursor: pointer;
 
     ${(props) =>
@@ -35,8 +37,19 @@ export const ItemContainer = styled.div<{ head?: boolean }>`
 
 const SwooshWrapper = styled.div`
     position: absolute;
-    left: -7px;
-    top: -32px;
+    background: rgb(255 255 255 / 30%);
+    width: 80px;
+    height: 60px;
+    left: -15px;
+    margin-top: -5px;
+    border-left: 6px solid rgb(255 255 255 / 50%);
+
+    // position: absolute;
+    // background: red;
+    // width: 80px;
+    // height: 30px;
+    // left: -7px;
+    // top: -32px;
 
     z-index: -1;
 `;

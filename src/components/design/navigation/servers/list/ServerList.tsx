@@ -56,15 +56,10 @@ type ParentProps = {
     reorder: (source: number, dest: number) => void;
 };
 
-const SidebarContainer = styled.div`
-    width: 80px;
-    display: flex;
-    justify-content: center;
-    background: #232323;
-`;
-
 const Base = styled.div`
     // width: 56px;
+    background: #232323;
+    width: 80px;
     display: flex;
     flex-direction: column;
 
@@ -108,8 +103,7 @@ export function ServerList(props: Props & ParentProps & FooterProps) {
     const Link = useLink();
 
     return (
-        <SidebarContainer>
-            <Base>
+        <Base>
             <DragDropContext onDragEnd={useDragEndCustomReorder(reorder)}>
                 <Droppable
                     droppableId="droppable"
@@ -195,6 +189,5 @@ export function ServerList(props: Props & ParentProps & FooterProps) {
                 </Link>
             </ItemContainer>
         </Base>
-        </SidebarContainer>
     );
 }
